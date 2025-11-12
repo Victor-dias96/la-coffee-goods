@@ -1,0 +1,28 @@
+.input-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--cor-texto-principal);
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--cor-texto-principal);
+  border-radius: 8px;
+  background-color: var(--cor-clara);
+  color: var(--cor-texto-principal);
+  font-size: 1rem;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 5px rgba(142, 67, 88, 0.5);
+}

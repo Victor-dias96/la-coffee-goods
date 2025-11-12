@@ -1,0 +1,36 @@
+.test-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.test-content-box {
+  background-color: var(--cor-principal-fundo);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.test-content-box h2 {
+  color: var(--cor-texto-principal);
+  margin-bottom: 25px;
+}
+
+.test-output {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: var(--cor-texto-principal);
+}
+
+.highlight-color-test {
+  color: var(--cor-destaque);
+  font-weight: bold;
+  margin-top: 15px;
+  border-top: 1px solid var(--cor-texto-principal);
+  padding-top: 10px;
+}
