@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import Header from "../../components/Header/Header.jsx";
 import Input from "../../components/Input/Input.jsx";
 import Button from "../../components/Button/Button.jsx";
+
+import PaymentButton from "../../components/PaymentButton/PaymentButton.jsx";
+
+// imports dos ícones
+import pixIcon from "../../assets/icons-button/pix.svg";
+import cartaoIcon from "../../assets/icons-button/cartao.svg";
+import dinheiroIcon from "../../assets/icons-button/dinheiro.svg";
+
 import "./TestPage.css";
 
 function TestPage() {
@@ -38,6 +46,29 @@ function TestPage() {
         <Button
           text="Botão com Ícone"
           icon={<span>🔥</span>}
+          onClick={() => {}}
+        />
+      </div>
+
+      {/* Teste dos PaymentButton */}
+      <div className="test-content-box test-paymentbutton-page">
+        <h2>Teste do Componente PaymentButton</h2>
+
+        <PaymentButton
+          icon={pixIcon}
+          title="Pix"
+          onClick={() => {}}
+        />
+
+        <PaymentButton
+          icon={cartaoIcon}
+          title="Cartão"
+          onClick={() => {}}
+        />
+
+        <PaymentButton
+          icon={dinheiroIcon}
+          title="Dinheiro"
           onClick={() => {}}
         />
       </div>
