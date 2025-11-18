@@ -17,7 +17,7 @@
 }
 
 .test-content-box h2 {
-  color: var(--cor-texto-principal);
+  color: var(--cor-destaque);
   margin-bottom: 25px;
 }
 

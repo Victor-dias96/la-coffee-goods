@@ -1,0 +1,24 @@
+:root {
+  --cor-principal-fundo: #e2c479;
+  --cor-destaque: #8e4358;
+  --cor-texto-principal: #40361e;
+  --cor-clara: #f8f8f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--cor-principal-fundo);
+  color: var(--cor-texto-principal);
+}
+
+#root,
+.App {
+  min-height: 100vh;
+  width: 100%;
+}
