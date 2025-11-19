@@ -1,0 +1,31 @@
+.payment-button {
+  width: 310px;
+  height: 80px;
+
+  background: #ffffff;
+  border: 3px solid #8E4358;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  cursor: pointer;
+}
+
+.payment-icon {
+  width: 48px;
+  height: 48px;
+  padding-left: 20px;
+}
+
+
+.payment-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.payment-button{
+    margin-top: 20px;
+}
