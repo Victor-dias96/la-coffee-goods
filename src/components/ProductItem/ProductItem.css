@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.product-container {
+  width: 200px;
+  height: 370px;
+  background-color: #E2C479; 
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Parte do FRONT (imagem e as pohas) --- */
+
+.product-front {
+  text-align: left;
+}
+
+.product-image {
+  background: #F8F0DD;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.product-image img {
+  width: 85%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-front h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0 0 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  color: #1E1B1C;
+}
+
+.product-front p {
+  font-size: 0.9rem;
+  color: #1E1B1C;
+}
+
+.switch-details-front {
+  background: none;
+  border: none;
+  color: #2e2e2e;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+/* --- Parte do Back - DESCRIÇÃO --- */
+
+.product-back{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-back h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1E1B1C;
+}
+
+.product-back p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #1E1B1C;
+  margin-bottom: 14px;
+}
+
+.switch-details-back {
+  background: none;
+  border: none;
+  color: #2e2e2e;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 12px;
+  margin-bottom: 0;
+  align-self: flex-start;
+}
+
+/* --- PREÇO do produto --- */
+
+.product-price {
+  margin-top: auto;
+}
+
+.product-price h3 {
+  width: 100%;
+  background-color: #8E4358; 
+  color: #F1F0F1;
+  padding: 12px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
