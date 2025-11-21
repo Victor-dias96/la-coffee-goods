@@ -1,15 +1,17 @@
 .button {
-    width: 190px;
-    height: 37px;
+  padding: 10px 25px;
+  background-color: var(--cor-destaque);
+  color: var(--cor-clara);
 
-    background-color: #8E4358;
-    color: #FFFFFF;
+  border: none;
+  border-radius: 100px;
 
-    border: none;
-    border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
 
-    font-size: 16px;
-    font-weight: 600;
+  cursor: pointer;
 
-    cursor: pointer;
+  width: 100%;
+  max-width: 250px;
+  margin: 10px auto;
 }
