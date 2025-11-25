@@ -1,6 +1,4 @@
-import React from "react";
-import TestPage from "./pages/RegisterPage/RegisterPage";
-/*Para testar a pagina de login coloque no lugar "./pages/LoginPage/LoginPage"*/
+import TestPage from "./pages/TestPage/TestPage";
 function App() {
   return (
     <div className="App">
