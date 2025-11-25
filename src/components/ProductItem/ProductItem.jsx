@@ -5,13 +5,20 @@ import "./ProductItem.css";
 
 function ProductItem({ title, description, category, price, image }) {
   const [contentPrimary, setContentPrimary] = useState(true);
+  const [itemSelected, setItemSelected] = useState(false);
 
   const handleSwitchContent = () => {
     setContentPrimary((prev) => !prev);
+    setItemSelected((prev) => !prev);
   };
 
+  const handleSelected = () => {
+    setItemSelected((prev) => !prev);
+  }
+
   return (
-    <div className="product-container">
+    <div className={`product-container ${itemSelected ? "product-selected" : ""}`} onClick={handleSelected}>
+      {itemSelected ? (<div className="product-selected-tag">Selecionado</div>) : ""}
       {contentPrimary ? (
         <div className="product-front">
           <div className="product-image">
