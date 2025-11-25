@@ -13,7 +13,11 @@
 
   display: flex;
   align-items: center;
+<<<<<<< feature/payment-page
+  gap: 15px; 
+=======
   gap: 15px;
+>>>>>>> main
 }
 
 .button img {
