@@ -1,8 +1,9 @@
-import TestPage from "./pages/TestPage/TestPage";
+import PaymentSucessPage from "./pages/PaymentSucessPage/PaymentSucessPage";
+
 function App() {
   return (
     <div className="App">
-      <TestPage />
+      <PaymentSucessPage />
     </div>
   );
 }

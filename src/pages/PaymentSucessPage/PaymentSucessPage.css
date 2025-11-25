@@ -1,0 +1,32 @@
+.payment-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.success-box{
+  margin-top: 50px;
+  background-color: #32302D;
+  padding: 40px 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.success-message {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.button-continue{
+    margin-top: 30px;
+}
