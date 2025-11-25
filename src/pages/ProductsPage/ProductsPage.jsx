@@ -31,7 +31,7 @@ function ProductsPage() {
 
     addToCart(productsToAdd);
 
-    navigate("/carrinho");
+    navigate("/cart");
   };
 
   // --- Conexão com o Banco de dados ou Mock (caso o BD esteja indisponível) ---

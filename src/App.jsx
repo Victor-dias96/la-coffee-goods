@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import OrderStatusPage from "./pages/OrderStatusPage/OrderStatusPage";
+import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
 
         <Route path="/order-status" element={<OrderStatusPage />} />
+
+        <Route path="/cart" element={<CartPage />} />
 
         {/* Exemplo de rota de teste (Opcional) */}
         {/* <Route path="/test" element={<TestPage />} /> */}

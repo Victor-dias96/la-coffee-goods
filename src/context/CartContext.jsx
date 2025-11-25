@@ -9,8 +9,13 @@ export function CartProvider({ children }) {
     setCartItems((prev) => [...prev, ...newItems]);
   };
 
+  const removeFromCart = (productId) => {
+    // Mantém na lista apenas os itens que NÃO têm esse ID
+    setCartItems((prev) => prev.filter((item) => item.id !== productId));
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
