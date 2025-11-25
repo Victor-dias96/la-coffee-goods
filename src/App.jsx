@@ -1,6 +1,9 @@
-import React from "react";
-import TestPage from "./pages/RegisterPage/RegisterPage";
-/*Para testar a pagina de login coloque no lugar "./pages/LoginPage/LoginPage"*/
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
+import OrderStatusPage from "./pages/OrderStatusPage/OrderStatusPage";
+
 function App() {
   return (
     <div className="App">
@@ -10,6 +13,10 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         <Route path="/register" element={<RegisterPage />} />
+
+        <Route path="/products" element={<ProductsPage />} />
+
+        <Route path="/order-status" element={<OrderStatusPage />} />
 
         {/* Exemplo de rota de teste (Opcional) */}
         {/* <Route path="/test" element={<TestPage />} /> */}

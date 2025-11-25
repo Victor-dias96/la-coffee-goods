@@ -24,7 +24,9 @@ function RegisterPage() {
           <Input label="Confirmar Senha:" type="password" />
 
           <div className="button-container-register">
-            <Button variant="primary">CADASTRAR</Button>
+            <Link to="/products">
+              <Button variant="primary">CADASTRAR</Button>
+            </Link>
           </div>
         </form>
       </div>

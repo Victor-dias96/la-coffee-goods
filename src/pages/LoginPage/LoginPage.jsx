@@ -33,7 +33,9 @@ function LoginPage() {
           </div>
 
           <div className="button-container">
-            <Button variant="primary">ENTRAR</Button>
+            <Link to="/products">
+              <Button variant="primary">ENTRAR</Button>
+            </Link>
           </div>
         </form>
       </div>
