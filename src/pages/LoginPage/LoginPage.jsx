@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
@@ -22,12 +23,13 @@ function LoginPage() {
           <Input label="Senha:" placeholder="" type="password" />
 
           <div className="form-footer">
-            <a href="#" className="forgot-password">
+            <Link to="#" className="forgot-password">
               Esqueci a senha
-            </a>
-            <a href="#" className="signup-link">
+            </Link>
+
+            <Link to="/register" className="signup-link">
               Cadastrar-se
-            </a>
+            </Link>
           </div>
 
           <div className="button-container">
