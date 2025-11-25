@@ -6,9 +6,34 @@ import { categoryConverter } from "../../utils/categoryConverter.js";
 import "./ProductsPage.css";
 import { useProductsData } from "../../hooks/useProductsData.js";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext.jsx";
 
 function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  // --- Lógica dos dados selecionados para o carrinho ---
+  const [selectedProductIds, setSelectedProductIds] = useState([]);
+
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const toggleProductSelection = (product) => {
+    if (selectedProductIds.includes(product.id)) {
+      setSelectedProductIds((prev) => prev.filter((id) => id !== product.id));
+    } else {
+      setSelectedProductIds((prev) => [...prev, product.id]);
+    }
+  };
+
+  const handleAddToCart = () => {
+    const productsToAdd = data.filter((p) => selectedProductIds.includes(p.id));
+
+    addToCart(productsToAdd);
+
+    navigate("/cart");
+  };
+
   // --- Conexão com o Banco de dados ou Mock (caso o BD esteja indisponível) ---
   const { data, isLoading, isError, error } = useProductsData();
 
@@ -42,14 +67,16 @@ function ProductsPage() {
         categoryConverter[product.category] || categoryConverter["DEFAULT"];
 
       return (
-        <ProductItem
-          key={product.id}
-          title={product.name}
-          price={product.price?.toFixed(2)}
-          category={categoryProduct}
-          description={product.description}
-          image={product.image}
-        />
+        <div key={product.id} onClick={() => toggleProductSelection(product)}>
+          <ProductItem
+            key={product.id}
+            title={product.name}
+            price={product.price?.toFixed(2)}
+            category={categoryProduct}
+            description={product.description}
+            image={product.image}
+          />
+        </div>
       );
     });
   };
@@ -68,20 +95,46 @@ function ProductsPage() {
       <Header />
 
       <nav className="category-bar">
-        <button onClick={() => handleCategoryClick("BEBIDA")} className={selectedCategory === "BEBIDA" ? "active" : ""}>Bebida</button>
+        <button
+          onClick={() => handleCategoryClick("BEBIDA")}
+          className={selectedCategory === "BEBIDA" ? "active" : ""}
+        >
+          Bebida
+        </button>
         <span>|</span>
-        <button onClick={() => handleCategoryClick("GRAO")} className={selectedCategory === "GRAO" ? "active" : ""}>Grão de Café</button>
+        <button
+          onClick={() => handleCategoryClick("GRAO")}
+          className={selectedCategory === "GRAO" ? "active" : ""}
+        >
+          Grão de Café
+        </button>
         <span>|</span>
-        <button onClick={() => handleCategoryClick("SALGADO")} className={selectedCategory === "SALGADO" ? "active" : ""}>Salgado</button>
+        <button
+          onClick={() => handleCategoryClick("SALGADO")}
+          className={selectedCategory === "SALGADO" ? "active" : ""}
+        >
+          Salgado
+        </button>
         <span>|</span>
-        <button onClick={() => handleCategoryClick("SOBREMESA")} className={selectedCategory === "SOBREMESA" ? "active" : ""}>Sobremesa</button>
+        <button
+          onClick={() => handleCategoryClick("SOBREMESA")}
+          className={selectedCategory === "SOBREMESA" ? "active" : ""}
+        >
+          Sobremesa
+        </button>
       </nav>
 
       <div className="productsItem-container">
         <div className="products-grid">{renderContent()}</div>
       </div>
 
-      <Button icon={shopIcon}>Adicionar ao carrinho</Button>
+      <Button
+        icon={shopIcon}
+        onClick={handleAddToCart}
+        disabled={selectedProductIds.length === 0}
+      >
+        Adicionar ao carrinho
+      </Button>
     </div>
   );
 }
