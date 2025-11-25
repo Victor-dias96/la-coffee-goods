@@ -3,15 +3,23 @@
   background-color: var(--cor-destaque);
   color: var(--cor-clara);
 
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
   border: none;
   border-radius: 100px;
 
-  font-size: 16px;
+  font-size: 1.15rem;
   font-weight: 600;
 
   cursor: pointer;
 
   width: 100%;
-  max-width: 250px;
+  max-width: max-content;
   margin: 10px auto;
+}
+
+.button img {
+  max-width: 32px;
 }
