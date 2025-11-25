@@ -4,7 +4,7 @@ import shopIcon from "../../assets/icons-button/shop.svg";
 import ProductItem from "../../components/ProductItem/ProductItem.jsx";
 import { categoryConverter } from "../../utils/categoryConverter.js";
 import { useCart } from "../../context/CartContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./CartPage.css"; // Vamos criar esse CSS rapidinho no passo 3
 
 function CartPage() {
@@ -20,7 +20,9 @@ function CartPage() {
       <h2>Seu carrinho está vazio 😢</h2>
       <p>Volte para a loja e escolha suas delícias!</p>
       <br />
-      <Button onClick={() => navigate("/products")}>Voltar para Produtos</Button>
+      <Button onClick={() => navigate("/products")}>
+        Voltar para Produtos
+      </Button>
     </div>
   );
 
@@ -40,7 +42,9 @@ function CartPage() {
           <div className="productsItem-container">
             <div className="products-grid">
               {cartItems.map((product) => {
-                const categoryProduct = categoryConverter[product.category] || categoryConverter["DEFAULT"];
+                const categoryProduct =
+                  categoryConverter[product.category] ||
+                  categoryConverter["DEFAULT"];
 
                 return (
                   <div key={product.cartId} className="cart-item-wrapper">
@@ -51,12 +55,12 @@ function CartPage() {
                       description={product.description}
                       image={product.image}
                     />
-                    
-                    <button 
-                        className="remove-btn"
-                        onClick={() => removeFromCart(product.cartId)}
+
+                    <button
+                      className="remove-btn"
+                      onClick={() => removeFromCart(product.cartId)}
                     >
-                        Remover
+                      Remover
                     </button>
                   </div>
                 );
@@ -66,12 +70,10 @@ function CartPage() {
 
           <footer className="cart-footer">
             <div className="total-info">
-                <span>Total do Pedido:</span>
-                <strong>R$ {totalValue.toFixed(2)}</strong>
+              <span>Total do Pedido:</span>
+              <strong>R$ {totalValue.toFixed(2)}</strong>
             </div>
-            <Button icon={shopIcon} onClick={() => alert("Pedido Finalizado!")}>
-                Finalizar Compra
-            </Button>
+            <Button icon={shopIcon} onClick={() => navigate("/payment")}>Finalizar Compra</Button>
           </footer>
         </>
       )}

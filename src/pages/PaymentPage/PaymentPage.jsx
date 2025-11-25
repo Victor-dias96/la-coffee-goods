@@ -10,8 +10,11 @@ import pixIcon from "../../assets/icons-button/pix.svg";
 import cardIcon from "../../assets/icons-button/cartao.svg";
 import moneyIcon from "../../assets/icons-button/dinheiro.svg";
 import voltarIcon from "../../assets/icons-button/seta-voltar.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function PaymentPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="payment-page">
       {/* Logo no topo */}
@@ -19,7 +22,7 @@ export default function PaymentPage() {
 
       {/* Botão Voltar */}
       <div className="back-button">
-        <Button icon={<img src={voltarIcon} />}>Voltar</Button>
+        <Button icon={<img src={voltarIcon} />} onClick={() => navigate("/cart")}>Voltar</Button>
       </div>
 
       {/* Título */}
@@ -29,11 +32,11 @@ export default function PaymentPage() {
 
       <div className="payment-options">
         {/* Área dos botões */}
-        <PaymentButton icon={pixIcon} title="Pix" />
+        <PaymentButton icon={pixIcon} title="Pix" onClick={() => navigate("/payment-sucess")} />
 
-        <PaymentButton icon={cardIcon} title="Cartão" />
+        <PaymentButton icon={cardIcon} title="Cartão" onClick={() => navigate("/payment-sucess")} />
 
-        <PaymentButton icon={moneyIcon} title="Dinheiro" />
+        <PaymentButton icon={moneyIcon} title="Dinheiro" onClick={() => navigate("/payment-sucess")} />
       </div>
     </div>
   );

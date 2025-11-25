@@ -2,8 +2,11 @@ import React from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import "./OrderStatusPage.css";
+import { useNavigate } from "react-router-dom";
 
 export default function OrderStatusPage() {
+    const navigate = useNavigate();
+
     return (
         <div className="orderpage-container">
             <Header />
@@ -23,7 +26,7 @@ export default function OrderStatusPage() {
                     </div>
 
                     <div className="orderpage-button-area">
-                        <Button variant="primary">Cancelar Pedido</Button>
+                        <Button variant="primary" onClick={() => navigate("/products")}>Cancelar Pedido</Button>
                     </div>
                 </div>
 

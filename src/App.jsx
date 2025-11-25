@@ -1,10 +1,11 @@
-import PaymentSucessPage from "./pages/PaymentSucessPage/PaymentSucessPage";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import OrderStatusPage from "./pages/OrderStatusPage/OrderStatusPage";
 import CartPage from "./pages/CartPage/CartPage";
+import PaymentSucessPage from "./pages/PaymentSucessPage/PaymentSucessPage";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
 
 function App() {
   return (
@@ -19,17 +20,12 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
 
         <Route path="/order-status" element={<OrderStatusPage />} />
-          
+
         <Route path="/payment" element={<PaymentPage />} />
-          
-        <Route path="/paymentsucess" element={<PaymentSucessPage />} /> 
-          
-        
+
+        <Route path="/payment-sucess" element={<PaymentSucessPage />} />
 
         <Route path="/cart" element={<CartPage />} />
-
-        {/* Exemplo de rota de teste (Opcional) */}
-        {/* <Route path="/test" element={<TestPage />} /> */}
 
         {/* Rota para páginas não encontradas (404 - Opcional) */}
         <Route path="*" element={<h1>Página Não Encontrada (404)</h1>} />
