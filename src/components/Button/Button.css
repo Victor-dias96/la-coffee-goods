@@ -11,7 +11,15 @@
 
   cursor: pointer;
 
-  width: 100%;
-  max-width: 250px;
-  margin: 10px auto;
+  display: flex;
+  align-items: center;
+<<<<<<< feature/payment-page
+  gap: 15px; 
+=======
+  gap: 15px;
+>>>>>>> main
+}
+
+.button img {
+  max-width: 32px;
 }

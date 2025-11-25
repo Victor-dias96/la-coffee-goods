@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
@@ -12,9 +13,9 @@ function RegisterPage() {
       <div className="register-content">
         <h2 className="page-title">Crie sua conta</h2>
 
-        <a href="#" className="login-link-top">
+        <Link to="/login" className="login-link-top">
           Já tenho conta
-        </a>
+        </Link>
 
         <form className="register-form">
           <Input label="Nome Completo:" type="text" />
@@ -23,7 +24,9 @@ function RegisterPage() {
           <Input label="Confirmar Senha:" type="password" />
 
           <div className="button-container-register">
-            <Button variant="primary">CADASTRAR</Button>
+            <Link to="/products">
+              <Button variant="primary">CADASTRAR</Button>
+            </Link>
           </div>
         </form>
       </div>
