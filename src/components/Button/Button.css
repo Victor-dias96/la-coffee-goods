@@ -3,21 +3,17 @@
   background-color: var(--cor-destaque);
   color: var(--cor-clara);
 
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
   border: none;
   border-radius: 100px;
 
-  font-size: 1.15rem;
+  font-size: 16px;
   font-weight: 600;
 
   cursor: pointer;
 
-  width: 100%;
-  max-width: max-content;
-  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .button img {
