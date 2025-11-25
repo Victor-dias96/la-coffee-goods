@@ -1,9 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-
-import LoginPage from "./pages/LoginPage/LoginPage.jsx";
-import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
-
+import TestPage from "./pages/RegisterPage/RegisterPage";
+/*Para testar a pagina de login coloque no lugar "./pages/LoginPage/LoginPage"*/
 function App() {
   return (
     <div className="App">
