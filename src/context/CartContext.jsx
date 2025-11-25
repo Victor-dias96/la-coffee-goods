@@ -6,12 +6,16 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (newItems) => {
-    setCartItems((prev) => [...prev, ...newItems]);
+    const itemsWithUniqueId = newItems.map(product => ({
+        ...product,
+        cartId: crypto.randomUUID() 
+    }));
+
+    setCartItems((prev) => [...prev, ...itemsWithUniqueId]);
   };
 
-  const removeFromCart = (productId) => {
-    // Mantém na lista apenas os itens que NÃO têm esse ID
-    setCartItems((prev) => prev.filter((item) => item.id !== productId));
+  const removeFromCart = (cartItemId) => {
+    setCartItems((prev) => prev.filter((item) => item.cartId !== cartItemId));
   };
 
   return (
@@ -22,5 +26,7 @@ export function CartProvider({ children }) {
 }
 
 export function useCart() {
-  return useContext(CartContext);
+  const context = useContext(CartContext);
+  if (!context) throw new Error("useCart deve ser usado dentro de um CartProvider");
+  return context;
 }

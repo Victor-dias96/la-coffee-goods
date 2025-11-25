@@ -43,7 +43,7 @@ function CartPage() {
                 const categoryProduct = categoryConverter[product.category] || categoryConverter["DEFAULT"];
 
                 return (
-                  <div key={product.id} className="cart-item-wrapper">
+                  <div key={product.cartId} className="cart-item-wrapper">
                     <ProductItem
                       title={product.name}
                       price={product.price?.toFixed(2)}
@@ -54,7 +54,7 @@ function CartPage() {
                     
                     <button 
                         className="remove-btn"
-                        onClick={() => removeFromCart(product.id)}
+                        onClick={() => removeFromCart(product.cartId)}
                     >
                         Remover
                     </button>
