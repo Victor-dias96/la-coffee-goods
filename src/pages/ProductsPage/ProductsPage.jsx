@@ -4,9 +4,12 @@ import shopIcon from "../../assets/icons-button/shop.svg";
 import ProductItem from "../../components/ProductItem/ProductItem.jsx";
 import { categoryConverter } from "../../utils/categoryConverter.js";
 import "./ProductsPage.css";
-import { useProductsData } from "../../hooks/useProductsData.js"; 
+import { useProductsData } from "../../hooks/useProductsData.js";
+import { useState } from "react";
 
 function ProductsPage() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  // --- Conexão com o Banco de dados ou Mock (caso o BD esteja indisponível) ---
   const { data, isLoading, isError, error } = useProductsData();
 
   const renderContent = () => {
@@ -15,20 +18,32 @@ function ProductsPage() {
     }
 
     if (isError) {
-      return <span className="error-msg">Erro ao buscar dados: {error.message}</span>;
+      return (
+        <span className="error-msg">Erro ao buscar dados: {error.message}</span>
+      );
     }
 
     if (!data || data.length === 0) {
       return <span>Nenhum produto encontrado.</span>;
     }
 
-    return data.map((product) => {
+    // --- Lógica do filtro da ".category-bar" ---
+
+    const filteredProducts = data.filter((product) => {
+      if (selectedCategory === null) {
+        return true;
+      }
+
+      return product.category === selectedCategory;
+    });
+
+    return filteredProducts.map((product) => {
       const categoryProduct =
         categoryConverter[product.category] || categoryConverter["DEFAULT"];
 
       return (
         <ProductItem
-          key={product.id} 
+          key={product.id}
           title={product.name}
           price={product.price?.toFixed(2)}
           category={categoryProduct}
@@ -39,24 +54,31 @@ function ProductsPage() {
     });
   };
 
+  const handleCategoryClick = (categoryKey) => {
+    if (selectedCategory === categoryKey) {
+      setSelectedCategory(null);
+      return;
+    }
+
+    setSelectedCategory(categoryKey);
+  };
+
   return (
     <div className="page-container">
       <Header />
 
       <nav className="category-bar">
-        <button>Bebida</button>
+        <button onClick={() => handleCategoryClick("BEBIDA")} className={selectedCategory === "BEBIDA" ? "active" : ""}>Bebida</button>
         <span>|</span>
-        <button>Grão de Café</button>
+        <button onClick={() => handleCategoryClick("GRAO")} className={selectedCategory === "GRAO" ? "active" : ""}>Grão de Café</button>
         <span>|</span>
-        <button>Salgados</button>
+        <button onClick={() => handleCategoryClick("SALGADO")} className={selectedCategory === "SALGADO" ? "active" : ""}>Salgado</button>
         <span>|</span>
-        <button>Sobremesas</button>
+        <button onClick={() => handleCategoryClick("SOBREMESA")} className={selectedCategory === "SOBREMESA" ? "active" : ""}>Sobremesa</button>
       </nav>
 
       <div className="productsItem-container">
-        <div className="products-grid">
-          {renderContent()}
-        </div>
+        <div className="products-grid">{renderContent()}</div>
       </div>
 
       <Button icon={shopIcon}>Adicionar ao carrinho</Button>

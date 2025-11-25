@@ -9,6 +9,10 @@
   gap: 34px;
 }
 
+.category-bar .active {
+  text-decoration: underline;
+}
+
 .category-bar button {
   background-color: transparent;
   border: none;
